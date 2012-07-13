@@ -16,6 +16,7 @@ def take_snapshot(device):
     result = device.takeSnapshot()
     result.writeToFile('%s/phone_%s.png' % (file_path, gen_png_no()),
                         "png")
+    MonkeyRunner.sleep(20)
 
 
 def init():

@@ -1,6 +1,5 @@
 import os
 import sys
-import time
 from com.android.monkeyrunner import MonkeyRunner, MonkeyDevice
 
 COUNT = 0
@@ -18,6 +17,7 @@ def take_snapshot(device):
     result.writeToFile('%s/switch_back_forth_%s.png' % (file_path,
                                                         gen_png_no()),
                                                         "png")
+    MonkeyRunner.sleep(20)
 
 
 def init():
@@ -51,7 +51,7 @@ def main():
         #clean the enviroment
         init()
 
-        for i in range(500):
+        for i in range(10):
             print "start %i/500 times test" % (i + 1)
 
             print "run browser..."
@@ -59,7 +59,7 @@ def main():
             activity = ".BrowserActivity"
             runComponent = package + '/' + activity
             device.startActivity(component=runComponent)
-            time.sleep(2)
+            MonkeyRunner.sleep(2)
             take_snapshot(device)
             device.press("KEYCODE_HOME", MonkeyDevice.DOWN_AND_UP)
 
@@ -67,7 +67,7 @@ def main():
             pkg = "com.google.android.apps.maps"
             acti = "com.google.android.maps.MapsActivity"
             device.startActivity(component='%s/%s' % (pkg, acti))
-            time.sleep(2)
+            MonkeyRunner.sleep(2)
             take_snapshot(device)
             device.press("KEYCODE_HOME", MonkeyDevice.DOWN_AND_UP)
 
@@ -76,7 +76,7 @@ def main():
             activity = "com.unity3d.player.VideoPlayer"
             runComponent = package + "/" + activity
             device.startActivity(component=runComponent)
-            time.sleep(2)
+            MonkeyRunner.sleep(2)
             take_snapshot(device)
             device.press("KEYCODE_HOME", MonkeyDevice.DOWN_AND_UP)
 
@@ -85,7 +85,7 @@ def main():
             activity = "com.rovio.ka3d.App"
             runComponent = package + "/" + activity
             device.startActivity(component=runComponent)
-            time.sleep(2)
+            MonkeyRunner.sleep(2)
             take_snapshot(device)
             device.press("KEYCODE_HOME", MonkeyDevice.DOWN_AND_UP)
 
