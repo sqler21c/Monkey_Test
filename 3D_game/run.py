@@ -40,6 +40,9 @@ def main():
         #clean the enviroment
         init()
 
+        # Wake up the screen and unlock
+        device.shell("svc power stayon true;input keyevent 82")
+
         #install 3D Game apk
         print "install diversion.apk"
         device.installPackage("%s/diversion.apk" % file_path)

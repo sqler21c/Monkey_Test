@@ -43,6 +43,9 @@ def main():
         #clean the enviroment
         init()
 
+        # Wake up the screen and unlock
+        device.shell("svc power stayon true;input keyevent 82")
+
         uri = ('http://samplemedia.linaro.org/Audio/'
                'big_buck_bunny_AAC_2Channel_44.1k_128K.AAC')
         device.startActivity(uri=uri,

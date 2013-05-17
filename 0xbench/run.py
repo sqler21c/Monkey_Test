@@ -36,6 +36,9 @@ def main():
         else:
             print "connect to the device: " + dev_id
 
+        # Wake up the screen and unlock
+        device.shell("svc power stayon true;input keyevent 82")
+ 
         package = "org.zeroxlab.zeroxbenchmark"
         comp = package + "/" + "Benchmark"
         device.startActivity(component=comp)

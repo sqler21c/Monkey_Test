@@ -40,6 +40,9 @@ def main():
     print "Start"
     init()
 
+    # Wake up the screen and unlock
+    device.shell("svc power stayon true;input keyevent 82")
+
     for dev_id in sys.argv[1:]:
         device = MonkeyRunner.waitForConnection(timeout=timeout_val,
                                                 deviceId=dev_id)

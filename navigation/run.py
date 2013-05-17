@@ -42,6 +42,9 @@ def main():
         #clean the enviroment
         init()
 
+        # Wake up the screen and unlock
+        device.shell("svc power stayon true;input keyevent 82")
+
         #install the googlemap apk
         print "install the google apk"
         device.installPackage("%s/googlemap.apk" % file_path)

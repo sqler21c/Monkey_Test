@@ -49,6 +49,9 @@ def main():
         #clean the enviroment
         init()
 
+        # Wake up the screen and unlock
+        device.shell("svc power stayon true;input keyevent 82")
+
         uri = ('file:////data/local/tests/'
                'big_buck_bunny_1080p_H264_AAC_25fps_7200K_short.MP4')
         device.startActivity(uri=uri,

@@ -43,6 +43,9 @@ def main():
         #clean the enviroment
         init()
 
+        # Wake up the screen and unlock
+        device.shell("svc power stayon true;input keyevent 82")
+
         #install the angrybird.apk
         print "install angrybird.apk"
         device.installPackage("%s/AngryBirds_1.3.2_rio.apk" % file_path)

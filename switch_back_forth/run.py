@@ -51,6 +51,9 @@ def main():
         #clean the enviroment
         init()
 
+        # Wake up the screen and unlock
+        device.shell("svc power stayon true;input keyevent 82")
+
         for i in range(10):
             print "start %i/500 times test" % (i + 1)
 

@@ -45,6 +45,9 @@ def main():
         #clean the enviroment
         init(device)
 
+        # Wake up the screen and unlock
+        device.shell("svc power stayon true;input keyevent 82")
+
         print "run %s..." % module_name
         print "Open camera"
         package = "com.android.camera"
